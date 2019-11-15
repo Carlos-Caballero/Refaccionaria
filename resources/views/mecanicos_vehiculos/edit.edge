@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+
+
+    {{--  <link rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>  --}}
+{{ style('style') }}
+<h1>Mis materias</h1>
+</head>
+<body >
+  <section>
+    <div >
+            <form action="/alumnos/editar/{{alumno.id}}" method="post">
+                <label style="color:black">Nombre</label><br>
+                <input style="border-radius:10px;width:210px; border-color:blue;"type="text"
+                    name="nombre" value="{{alumno.nombre}}"/><br>
+                <label style="color:black">Apellido</label><br>
+                <input style="border-radius:10px; width:210px; border-color:blue" type="text"
+                    name="apellido"/ value="{{alumno.apellido}}"><br>
+                <label style="color:black">Domicilio </label><br>
+                <input style="border-radius:10px; width:210px; border-color:blue" type="text"
+                    name="domicilio" value="{{alumno.domicilio}}"/><br>
+                <label style="color:black">Email </label>    <br>
+                <input style="border-radius:10px; width:210px; border-color:blue" type="text"
+                    name="email" value="{{alumno.email}}"/><br>
+                <label style="color:black">Carrera </label>   <br> 
+                <input style="border-radius:10px; width:210px; border-color:blue" type="text"
+                    name="carrera" value="{{alumno.carrera}}"/><br>
+                <label style="color:black">Matricula </label>  <br>  
+                <input style="border-radius:10px; width:208px; border-color:blue" type="number"
+                    name="matricula" value="{{alumno.matricula}}"/><br>   
+                <input class="waves-effect waves-light btn" type="submit" value="Editar"/>      
+            </form>
+      
+    </div>
+  </section>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  
+</body>
+</body>
+</html>
+
+<style>
+
+#contenedor{
+    max-width: 48%;
+    float: right;
+    padding: 10px;
+    margin-top: -40%;
+}
+
+
+body{
+    background-color: aquamarine;
+}
+label{
+    color: currentColor;
+    margin-left: 15px;
+}
+
+#divtabla{
+    float: right ;
+    position: relative  ;
+}
+</style>

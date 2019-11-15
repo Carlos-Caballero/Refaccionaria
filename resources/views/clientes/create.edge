@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+
+
+    {{--  <link rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>  --}}
+{{ style('style') }}
+  
+    <h1>Mis Alumnos</h1>
+</head>
+<body >
+  <section>
+      <form action="/cliente" method="post">
+            <label for="nombre">NOMBRE DEL CLIENTE: </label><br>
+          <input name="nombre"type="text"><br>
+          <label for="">DIRECCION: </label><br>
+          <input name="direccion"type="text"><br>
+          <label for="">TELEFONO: </label><br>
+          <input name="telefono"type="text"><br>
+          <input class="waves-effect waves-light btn" type="submit" value= "AGREGAR"/>
+      </form>
+    </section>
+    
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      
+    </body>
+    </body>
+    </html>
+    
+    <style>
+    
+    #contenedor{
+        max-width: 48%;
+        float: right;
+        padding: 10px;
+        margin-top: -40%;
+    }
+    
+    
+    body{
+        background-color: aquamarine;
+    }
+    label{
+        color: currentColor;
+        margin-left: 15px;
+    }
+    
+    #divtabla{
+        float: right ;
+        position: relative  ;
+    }
+    </style>

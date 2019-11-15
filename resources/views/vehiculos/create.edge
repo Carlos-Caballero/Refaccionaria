@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    {{--  <link rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>  --}}
+{{ style('style') }}
+  
+    <h1>vehiculos</h1>
+</head>
+<body >
+  <section>
+      <form action="/vehiculo" method="post">
+            <label for="nombre">COLOR: </label><br>
+          <input name="color"type="text"><br>
+          <label for="">MODELO: </label><br>
+          <input name="modelo"type="text"><br>
+          <label for="">FECHA DE ENTRADA:(Ejemp: 2019-11-01 04:14:00) </label><br>
+          <input name="Fecha_entrada"type="text"><br>
+          <label for="">HORA DE ENTRADA:(Ejemp: 08:00:00) </label><br>
+          <input name="Hora_ent"type="text"><br>
+          <label for="">CLIENTE: </label><br>
+          <select class="custom-select" name="cliente_id">
+                @each(cliente in clientes)
+                    <option value={{cliente.id}}>{{cliente.nombre}}</option>
+                @endeach
+        </select>
+          <input class="waves-effect waves-light btn" type="submit" value= "AGREGAR"/>
+      </form>
+    </section>
+    
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      
+    </body>
+    </body>
+    </html>
+    
+    <style>
+    
+    #contenedor{
+        max-width: 48%;
+        float: right;
+        padding: 10px;
+        margin-top: -40%;
+    }
+    
+    
+    body{
+        background-color: aquamarine;
+    }
+    label{
+        color: currentColor;
+        margin-left: 15px;
+    }
+    
+    #divtabla{
+        float: right ;
+        position: relative  ;
+    }
+    </style>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    {{--  <link rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>  --}}
+{{ style('style') }}
+  
+    <h1>repuestos</h1>
+</head>
+<body >
+  <section>
+      <form action="/repuesto" method="post">
+            <label for="nombre">DESCRIPCION: </label><br>
+          <input name="descripcion"type="text"><br>
+          <label for="">COSTO UNITARIO: </label><br>
+          <input name="costUnit"type="text"><br>
+          <label for="">PRECIO UNITARIO: </label><br>
+          <input name="precioUnit"type="text"><br>
+          <label for="">IMPUESTO PARCIAL: </label><br>
+          <input name="impParcial"type="text"><br>
+          <label for="">HOJA DE PARTES: </label><br>
+          <select class="custom-select" name="hoja_id">
+                @each(hojaDeParte in hojaDePartes)
+                    <option value={{hojaDeParte.id}}>{{hojaDeParte.nombre}}</option>
+                @endeach
+        </select>
+        <label for="">MECANICO: </label><br>
+        <select class="custom-select" name="hoja_mecanico_id">
+                @each(mecanico in mecanicos)
+                    <option value={{mecanico.id}}>{{mecanico.nombre}}</option>
+                @endeach
+        </select>
+          <input class="waves-effect waves-light btn" type="submit" value= "AGREGAR"/>
+      </form>
+    </section>
+    
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      
+    </body>
+    </body>
+    </html>
+    
+    <style>
+    
+    #contenedor{
+        max-width: 48%;
+        float: right;
+        padding: 10px;
+        margin-top: -40%;
+    }
+    
+    
+    body{
+        background-color: aquamarine;
+    }
+    label{
+        color: currentColor;
+        margin-left: 15px;
+    }
+    
+    #divtabla{
+        float: right ;
+        position: relative  ;
+    }
+    </style>

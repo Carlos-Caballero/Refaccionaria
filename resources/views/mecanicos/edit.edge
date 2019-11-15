@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+
+
+    {{--  <link rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>  --}}
+{{ style('style') }}
+<h1>Mis materias</h1>
+</head>
+<body >
+  <section>
+    <div >
+            <form action="{{ '/mecanico/'+ mecanico.id + '?_method=PUT'}}" method="POST">
+                {{ csrfField() }}
+                <label style="color:black">Nombre</label><br>
+                <input style="border-radius:10px;width:210px; border-color:blue;"type="text"
+                    name="nombre" value="{{mecanico.nombre}}"/><br>
+                <label style="color:black">Direccion</label><br>
+                <input style="border-radius:10px; width:210px; border-color:blue" type="text"
+                    name="direccion"/ value="{{mecanico.direccion}}"><br>
+                <label style="color:black">Telefono </label><br>
+                <input style="border-radius:10px; width:210px; border-color:blue" type="text"
+                    name="telefono" value="{{mecanico.telefono}}"/><br>
+                    <label style="color:black">Costo Por Hora </label><br>
+                    <input style="border-radius:10px; width:210px; border-color:blue" type="text"
+                        name="costoPorHora" value="{{mecanico.costoPorHora}}"/><br>
+                        <label style="color:black">Categoria</label><br>
+                    <input style="border-radius:10px; width:210px; border-color:blue" type="text"
+                        name="categoria" value="{{mecanico.categoria}}"/><br> 
+                <button type="submit" class="waves-effect waves-light btn">Actualizar</button>
+                </form>
+      
+    </div>
+  </section>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  
+</body>
+</body>
+</html>
+
+<style>
+
+#contenedor{
+    max-width: 48%;
+    float: right;
+    padding: 10px;
+    margin-top: -40%;
+}
+
+
+body{
+    background-color: aquamarine;
+}
+label{
+    color: currentColor;
+    margin-left: 15px;
+}
+
+#divtabla{
+    float: right ;
+    position: relative  ;
+}
+</style>

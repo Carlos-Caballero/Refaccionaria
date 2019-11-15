@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+
+
+    {{--  <link rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>  --}}
+  <h1>Lista de vehiculos</h1>
+{{ style('style') }}
+
+</head>
+<body >
+        <a class="waves-effect waves-light btn" href="/vehiculo/create">crear vehiculo</a>
+        <a class="waves-effect waves-light btn" href="/">volver al menu</a>
+      <section>
+    <div >
+        <div class="container" id="contenedor">
+                <table class="highlight">
+                        <thead>
+                                <tr>
+                                        <th>id</th>
+                                        <th>Modelo</th>
+                                        <th>Color</th>
+                                        <th>Fecha de entrada</th>
+                                        <th>Hora de entrada</th>
+                                        <th>Cliente</th>
+                                    </tr>
+                        </thead>
+                
+                        <tbody>
+                @each(vehiculo in vehiculos)
+                <tr>
+                    <th>
+                        <ul>
+                            {{vehiculo.id}}
+                        </ul>
+                    </th>
+                    <th>
+                        <ul>
+                            {{vehiculo.modelo}}
+                        </ul>
+                    </th>
+                    <th>    
+                            <ul>
+                                {{vehiculo.color}}
+                            </ul>
+                        </th>
+                    <th>    
+                        <ul>
+                            {{vehiculo.Fecha_entrada}}
+                        </ul>
+                    </th>
+                    <th>    
+                        <ul>
+                            {{vehiculo.Hora_ent}}
+                        </ul>
+                    </th>
+                    <th>
+                        <ul>
+                            {{ vehiculo.cliente.id+" "+vehiculo.cliente.nombre }}
+                        </ul>
+                    </th>
+                    
+                    <th>
+                        <a  href="vehiculo/{{vehiculo.id}}/edit" >Editar</a>
+                    </th>
+                    <th>
+                    <form action="{{ 'vehiculo/'+vehiculo.id + '?_method=DELETE' }}" method="POST">
+                        {{ csrfField() }}
+                            <button type="submit" class ="waves-effect waves-light btn">Eliminar1</button>
+                        </form>
+                    </th>
+                    
+                     
+                </tr>
+                
+                
+                @endeach
+            </body>
+            </table>
+        </div>
+      
+    </div>
+
+    <ul id="lista" class="dropdown-content">
+        <li><a href="#">one</a></li>
+        <li><a href="#">two</a></li>
+        <li><a href="#">three</a></li>
+      </ul>
+  </section>
+
+  <ul id="dropdown2" class="dropdown-content">
+
+        @each(vehiculo in vehiculoss)
+        <li>
+             {{vehiculo.nombre}}
+        </li>    
+        @endeach
+      </ul>
+
+
+      {{--  <a class="btn dropdown-trigger" href="#!" data-target="dropdown2">Dropdown<i class="material-icons right">arrow_drop_down</i></a>  --}}
+        
+      
+
+  
+
+<script src="../js/jquery.js"></script>    
+<script src="../js/materialize.min.js"></script>
+
+</body>
+</body>
+
+<script>
+    //funcionalidad dropdown
+        document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elems,{
+            coverTrigger: false
+        });
+      });
+    //
+      var a = 0
+      console.log(a)
+      $('.dropdown-trigger').dropdown();
+    
+    //   const elemsDropdown = document.querySelectorAll(".dropdown-trigger");
+    //   const instancesDropdown = M.Dropdown.init(elemsDropdown); 
+      
+      </script>
+</html>
+
+<style>
+
+#contenedor{
+    max-width: 48%;
+    float: left     ;
+    padding: 10px;
+/*     
+    margin-top: -20%; */
+}
+input{
+    max-width: 40%;
+    margin-left: 15px;
+}
+
+body{
+    background-color: aquamarine;
+}
+label{
+    color: currentColor;
+    margin-left: 15px;
+}
+
+#divtabla{
+    float: right ;
+    position: relative  ;
+}
+</style>

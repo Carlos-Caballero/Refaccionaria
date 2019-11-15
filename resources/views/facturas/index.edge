@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+
+
+    {{--  <link rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>  --}}
+  <h1>Lista de facturas</h1>
+{{ style('style') }}
+
+</head>
+<body >
+        <a class="waves-effect waves-light btn" href="/factura/create">crear factura</a>
+        <a class="waves-effect waves-light btn" href="/">volver al menu</a>
+      <section>
+    <div >
+        <div class="container" id="contenedor">
+                <table class="highlight">
+                        <thead>
+                                <tr>
+                                        <th>id</th>
+                                        <th>Fecha</th>
+                                        <th>Impuesto en pesos</th>
+                                        <th>Impuesto en dolares</th>
+                                        <th>RFC</th>
+                                        <th>Hoja de parte</th>
+                                    </tr>
+                        </thead>
+                
+                        <tbody>
+                @each(factura in facturas)
+                <tr>
+                    <th>
+                        <ul>
+                            {{factura.id}}
+                        </ul>
+                    </th>
+                    <th>
+                        <ul>
+                            {{factura.fecha}}
+                        </ul>
+                    </th>
+                    <th>    
+                            <ul>
+                                {{factura.imp_pesos}}
+                            </ul>
+                        </th>
+                    <th>    
+                        <ul>
+                            {{factura.imp_dol}}
+                        </ul>
+                    </th>
+                    <th>    
+                        <ul>
+                            {{factura.RFC}}
+                        </ul>
+                    </th>
+                    <th>
+                        <ul>
+                            {{ factura.hojadeparte.id+"-."+factura.hojadeparte.nombre }}
+                        </ul>
+                    </th>
+                    
+                    <th>
+                        <a  href="factura/{{factura.id}}/edit" >Editar</a>
+                    </th>
+                    <th>
+                    <form action="{{ 'factura/'+factura.id + '?_method=DELETE' }}" method="POST">
+                        {{ csrfField() }}
+                            <button type="submit" class ="waves-effect waves-light btn">Eliminar1</button>
+                        </form>
+                    </th>
+                    
+                     
+                </tr>
+                
+                
+                @endeach
+            </body>
+            </table>
+        </div>
+      
+    </div>
+
+    <ul id="lista" class="dropdown-content">
+        <li><a href="#">one</a></li>
+        <li><a href="#">two</a></li>
+        <li><a href="#">three</a></li>
+      </ul>
+  </section>
+
+  <ul id="dropdown2" class="dropdown-content">
+
+        @each(factura in facturass)
+        <li>
+             {{factura.nombre}}
+        </li>    
+        @endeach
+      </ul>
+
+
+      {{--  <a class="btn dropdown-trigger" href="#!" data-target="dropdown2">Dropdown<i class="material-icons right">arrow_drop_down</i></a>  --}}
+        
+      
+
+  
+
+<script src="../js/jquery.js"></script>    
+<script src="../js/materialize.min.js"></script>
+
+</body>
+</body>
+
+<script>
+    //funcionalidad dropdown
+        document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elems,{
+            coverTrigger: false
+        });
+      });
+    //
+      var a = 0
+      console.log(a)
+      $('.dropdown-trigger').dropdown();
+    
+    //   const elemsDropdown = document.querySelectorAll(".dropdown-trigger");
+    //   const instancesDropdown = M.Dropdown.init(elemsDropdown); 
+      
+      </script>
+</html>
+
+<style>
+
+#contenedor{
+    max-width: 48%;
+    float: left     ;
+    padding: 10px;
+/*     
+    margin-top: -20%; */
+}
+input{
+    max-width: 40%;
+    margin-left: 15px;
+}
+
+body{
+    background-color: aquamarine;
+}
+label{
+    color: currentColor;
+    margin-left: 15px;
+}
+
+#divtabla{
+    float: right ;
+    position: relative  ;
+}
+</style>
